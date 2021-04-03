@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
+      
         /*
          * Package Service Providers...
          */
@@ -176,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         \SocialiteProviders\Manager\ServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*

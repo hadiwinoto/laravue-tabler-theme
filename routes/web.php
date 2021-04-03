@@ -132,4 +132,9 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
     Route::get('active-users', 'App\Http\Controllers\AdminDetailsController@activeUsers');
 });
 
+Route::group(['middleware' => ['auth', 'activated', 'activity', 'checkblocked']], function () {
+    Route::get('/tiket', ['uses' => 'App\Http\Controllers\Tiket\TiketController@ShowTiket']);
+    Route::get('/tiket/data', ['uses' => 'App\Http\Controllers\Tiket\TiketController@getAllDataTiket']);
+});
+
 Route::redirect('/php', '/phpinfo', 301);

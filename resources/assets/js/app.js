@@ -5,12 +5,19 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+window.Vue = require('vue');
+
+
 require('./bootstrap');
 require('hideshowpassword');
+import Vue from "vue";
+import VueElementLoading from "vue-element-loading";
+import VueResource from 'vue-resource';
+
+Vue.use(VueResource)
+Vue.component("VueElementLoading", VueElementLoading);
 // var Dropzone = require('dropzone');
 var password = require('password-strength-meter');
-
-window.Vue = require('vue');
 
 // import AWN from "awesome-notifications"
 // const option_alert = {
@@ -36,6 +43,7 @@ window.Vue = require('vue');
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('users-count', require('./components/UsersCount.vue').default);
 Vue.component('users-home', require('./components/pages/user/home.vue').default);
+Vue.component('tiket-index', require('./components/tiket/Tiket.vue').default);
 
 
 const app = new Vue({
