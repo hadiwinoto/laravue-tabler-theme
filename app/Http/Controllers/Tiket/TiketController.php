@@ -17,6 +17,15 @@ class TiketController extends Controller
 
         return view('pages.tiket.tiket');
     }
+    public function ShowDetail(){
+
+        return view('pages.tiket.detail');
+    }
+
+    public function ShowInfoUmum(){
+
+        return view('pages.tiket.infoumum');
+    }
     public function getAllDataTiket(){
         $data = $this->tiket->get();
 

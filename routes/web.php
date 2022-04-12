@@ -24,34 +24,17 @@ Route::group(['middleware' => ['web', 'checkblocked']], function () {
 // Authentication Routes
 Auth::routes();
 
-// Public Routes
-Route::group(['middleware' => ['web', 'activity', 'checkblocked']], function () {
 
-    // Activation Routes
-    Route::get('/activate', ['as' => 'activate', 'uses' => 'App\Http\Controllers\Auth\ActivateController@initial']);
-
-    Route::get('/activate/{token}', ['as' => 'authenticated.activate', 'uses' => 'App\Http\Controllers\Auth\ActivateController@activate']);
-    Route::get('/activation', ['as' => 'authenticated.activation-resend', 'uses' => 'App\Http\Controllers\Auth\ActivateController@resend']);
-    Route::get('/exceeded', ['as' => 'exceeded', 'uses' => 'App\Http\Controllers\Auth\ActivateController@exceeded']);
-
-    // Socialite Register Routes
-    Route::get('/social/redirect/{provider}', ['as' => 'social.redirect', 'uses' => 'App\Http\Controllers\Auth\SocialController@getSocialRedirect']);
-    Route::get('/social/handle/{provider}', ['as' => 'social.handle', 'uses' => 'App\Http\Controllers\Auth\SocialController@getSocialHandle']);
-
-    // Route to for user to reactivate their user deleted account.
-    Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'App\Http\Controllers\RestoreUserController@userReActivate']);
-});
 
 // Registered and Activated User Routes
-Route::group(['middleware' => ['auth', 'activated', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth']], function () {
 
     // Activation Routes
-    Route::get('/activation-required', ['uses' => 'App\Http\Controllers\Auth\ActivateController@activationRequired'])->name('activation-required');
     Route::get('/logout', ['uses' => 'App\Http\Controllers\Auth\LoginController@logout'])->name('logout');
 });
 
 // Registered and Activated User Routes
-Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'activity', 'checkblocked']], function () {
 
     //  Homepage Route - Redirect based on user role is in controller.
     Route::get('/home', ['as' => 'public.home',   'uses' => 'App\Http\Controllers\UserController@index']);
@@ -64,7 +47,7 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep', 'chec
 });
 
 // Registered, activated, and is current user routes.
-Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', 'twostep', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', 'checkblocked']], function () {
 
     // User Profile and Account Routes
     Route::resource(
@@ -132,9 +115,13 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
     Route::get('active-users', 'App\Http\Controllers\AdminDetailsController@activeUsers');
 });
 
-Route::group(['middleware' => ['auth', 'activated', 'activity', 'checkblocked']], function () {
-    Route::get('/tiket', ['uses' => 'App\Http\Controllers\Tiket\TiketController@ShowTiket']);
-    Route::get('/tiket/data', ['uses' => 'App\Http\Controllers\Tiket\TiketController@getAllDataTiket']);
+Route::group(['middleware' => ['auth', 'activated']], function () {
+    Route::get('/proyek', ['uses' => 'App\Http\Controllers\Tiket\TiketController@ShowTiket']);
+    Route::get('/proyek/detail/{id}', ['uses' => 'App\Http\Controllers\Tiket\TiketController@ShowDetail']);
+    Route::get('/proyek/data', ['uses' => 'App\Http\Controllers\Tiket\TiketController@getAllDataTiket']);
+
+
+    Route::get('/proyek/inspeksi/informasiumum/{id}', ['uses' => 'App\Http\Controllers\Tiket\TiketController@ShowInfoUmum']);
 });
 
 Route::redirect('/php', '/phpinfo', 301);

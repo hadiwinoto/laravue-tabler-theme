@@ -18,24 +18,24 @@
     <!-- CSS files -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
     <link href="{{asset('css/app.css') }}" rel="stylesheet" type="text/css" >
-    <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
-    <link href="./dist/css/tabler-flags.min.css" rel="stylesheet"/>
-    <link href="./dist/css/tabler-payments.min.css" rel="stylesheet"/>
-    <link href="./dist/css/tabler-vendors.min.css" rel="stylesheet"/>
-    <link href="./dist/css/demo.min.css" rel="stylesheet"/>
-    <link href="./dist/css/style.css" rel="stylesheet"/>
+    <link href="{{asset('dist/css/tabler.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('dist/css/tabler-flags.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('dist/css/tabler-payments.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('dist/css/tabler-vendors.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('dist/css/demo.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('dist/css/style.css')}}" rel="stylesheet"/>
   </head>
   <body class="antialiased">
   <div id="app">
     <div class="wrapper">
       <div class="sticky-top">
-      <header class="navbar navbar-expand-md navbar-dark sticky-top d-print-none">
+      <header class="navbar navbar-expand-md navbar-light sticky-top d-print-none">
         <div class="container-xl">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
             <span class="navbar-toggler-icon"></span>
           </button>
          
-              <img src="./images/logo_ppg.png" width="" height="320" alt="Tabler" class="navbar-brand-image">
+              <img src="" width="" height="320"  class="navbar-brand-image">
           
           </h1>
           <div class="navbar-nav flex-row order-md-last">
@@ -66,9 +66,6 @@
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="#" class="dropdown-item">Set status</a>
-                <a href="#" class="dropdown-item">Profile & account</a>
-                <a href="#" class="dropdown-item">Feedback</a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">Settings</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -99,33 +96,24 @@
                     </span>
                   </a>
                 </li>
-                <li class="nav-item {{ (request()->is('tiket')||request()->is('/tiket')) ? 'nav-item active' : '' }}">
-                  <a class="nav-link" href="/tiket">
+                <li class="nav-item {{ (request()->is('proyek*')||request()->is('/proyek')) ? 'nav-item active' : '' }}">
+                  <a class="nav-link" href="/proyek">
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
                     </span>
                     <span class="nav-link-title">
-                      Ticket
+                      Proyek
                     </span>
                   </a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link" href="#navbar-extra" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
-                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </span>
-                    <span class="nav-link-title">
-                      Extra
-                    </span>
-                  </a>
-                </li>
+
                 <li class="nav-item">
-                  <a class="nav-link" href="./docs/index.html" >
+                  <a class="nav-link" href="/database" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/file-text -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><line x1="9" y1="9" x2="10" y2="9" /><line x1="9" y1="13" x2="15" y2="13" /><line x1="9" y1="17" x2="15" y2="17" /></svg>
                     </span>
                     <span class="nav-link-title">
-                      Dokumen
+                      Database
                     </span>
                   </a>
                 </li>
@@ -150,8 +138,8 @@
     </div>
   </div>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="./dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="./dist/js/tabler.min.js"></script>
-    <script src="./dist/js/index.var.js"></script>
+    <script src="{{asset('dist/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
+    <script src="{{asset('dist/js/tabler.min.js')}}"></script>
+    <script src="{{asset('dist/js/index.var.js')}}"></script>
   </body>
 </html>

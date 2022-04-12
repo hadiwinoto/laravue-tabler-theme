@@ -44,6 +44,8 @@ var password = require('password-strength-meter');
 Vue.component('users-count', require('./components/UsersCount.vue').default);
 Vue.component('users-home', require('./components/pages/user/home.vue').default);
 Vue.component('tiket-index', require('./components/tiket/Tiket.vue').default);
+Vue.component('tiket-detail', require('./components/tiket/Detail.vue').default);
+Vue.component('tiket-infoumum', require('./components/tiket/InfoUmum.vue').default);
 
 
 const app = new Vue({

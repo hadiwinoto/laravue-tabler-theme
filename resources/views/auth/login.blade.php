@@ -73,14 +73,14 @@
               <button type="submit" class="btn btn-primary w-100">{{ __('Login') }}</button>
             </div>
           </div>
-          <div class="hr-text">or</div>
+          <!-- <div class="hr-text">or</div>
           <div class="card-body">
             <div class="row">
             <div class="text-center text-muted mt-3">
           Don't have account yet? <a href="./sign-up.html" tabindex="-1">Sign up</a>
         </div>
             </div>
-          </div>
+          </div> -->
         </form>
         
       </div>

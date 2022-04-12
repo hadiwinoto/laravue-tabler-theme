@@ -1,7 +1,7 @@
 @extends('layouts.apps')
 @section('title')
-    Proyek
+    Informasi Umum
 @endsection
 @section('konten')
-<tiket-index></tiket-index>
+<tiket-infoumum></tiket-infoumum>
 @endsection
